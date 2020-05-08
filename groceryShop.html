@@ -72,12 +72,12 @@ var items = [{
                 this.Qty = Qty
             }
             GetItemGtr = (item_rate)=>{
-                items.map(value =>{
+                items.filter(value =>{
                    console.log(value.item_rate < item_rate)
             })
             }
             GetItemLess= (item_rate)=>{
-                items.map(value =>{
+                items.filter(value =>{
                    console.log(value.item_rate >  item_rate)
             })
             }
@@ -87,7 +87,7 @@ var items = [{
             })
             }
             OutOfStoke = () =>{
-                items.map(value =>{
+                items.filter(value =>{
                    console.log(value.Qty  === 0)
                 })
             }
@@ -101,6 +101,7 @@ var items = [{
     }
         let abc = new grocaeryShop(items)
         abc.GetItemGtr(100)
+        abc.GetItemLess(50)
         abc.OutOfStoke()
        // abc.ItemSold(100)
         abc.GetItemType('Choclate')
