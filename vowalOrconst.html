@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Conatant and Vowal</title>
+</head>
+<body>
+    <style>
+        .text{
+            color:blueviolet;
+        }
+        .box{
+            border: 2px solid gold;
+            border-radius: 5px;
+        }
+        .btn{
+            border-radius: 5px;
+            background-color: cadetblue;   
+        }
+    </style>
+   
+    <input type="text" id="const" class="box"><br>
+    <p class="text">Check weathe cherecter Vowal or Constant</p>
+    <button onclick="myFunction()" class="btn">Check </button><br>
+    <p class="text">Check weathe Armstronge or not</p>
+    <button onclick="myFunction2()" class="btn">Reverse </button>
+    <p class="text">Convert decimal to  Binary</p>
+    <button onclick="myFunction3()" class="btn">Convert</button>
+    <p id="ans"></p>
+
+
+    <script>
+        function myFunction() {
+            var str = document.getElementById("const").value 
+        
+        if(str.length == 1){
+            console.log(str.length)
+            if(str==='a'||str ==='e'||str==='i'||str ===  'u'||str ===  'o'||str ===  'O'|| str === 'I'|| str === 'A'|| str === 'E'|| str === 'U')
+                {
+                    document.getElementById("ans").innerHTML = "Vowal"
+                }
+            else
+                {
+                    document.getElementById("ans").innerHTML = "Constant"
+                }
+        }else{
+            document.getElementById("ans").innerHTML = "Enter only one cherecter"
+            console.log("Enter only one cherecter")
+        }
+}
+
+
+
+        function myFunction2() {
+            var str = document.getElementById("const").value 
+            var revStr = str.split('').reverse().join('')
+            console.log(revStr)
+            document.getElementById("ans").innerHTML = revStr
+
+}
+
+
+
+
+        function myFunction3() {
+            //var str = document.getElementById("const").value 
+            var num = 4;
+            var remend ,dev = 0 ;
+            while(num !=0){
+            console.log
+            remend = num % 2; 
+                console.log(remend);
+            num = num/2;
+    }
+}
+        
+    </script>
+</body>
+</html>
