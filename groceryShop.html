@@ -12,99 +12,94 @@ var items = [{
     item_name: 'parle-G',
     item_rate: 120,
     item_type: 'biscuits',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'Good-day',
     item_rate: 150,
     item_type: 'biscuits',
-    item_available:'Out of Stoke',
     Qty:10
 },{
     item_name: 'Carrot',
     item_rate: 100,
     item_type: 'Vegetable',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'Chilli',
     item_rate: 50,
     item_type: 'Vegetable',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'parle-G',
     item_rate: 10,
     item_type: 'biscuits',
-    item_available:'Out of Stoke',
     Qty:10
 },{
     item_name: 'Clinic Plus',
     item_rate: 200,
     item_type: 'Shampoo',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'Sunsilk',
     item_rate: 10,
     item_type: 'Shampoo',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'Melody',
     item_rate: 10,
     item_type: 'Choclate',
-    item_available:'Stoke',
     Qty:10
 },{
     item_name: 'parle',
     item_rate: 10,
     item_type: 'Choclate',
-    item_available:'Stoke',
     Qty:0
 }];
     class grocaeryShop {
-            constructor(item_name,item_rate,item_type,item_available,Qty){
+            constructor(item_name,item_rate,item_type,Qty){
                 this.item_name =  item_name
                 this.item_rate = item_rate
                 this.item_type = item_type;
-                this.item_available = item_available
+                //this.item_available = item_available
                 this.Qty = Qty
             }
-            GetItemGtr = (item_rate)=>{
-                items.filter(value =>{
-                   console.log(value.item_rate < item_rate)
+            GetItemGtr = ()=>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_rate > 100
             })
-            }
-            GetItemLess= (item_rate)=>{
-                items.filter(value =>{
-                   console.log(value.item_rate >  item_rate)
+            console.log(GetItem)
+            }            
+            
+            GetItemLess= ()=>{
+               let GetItem =  items.filter(value =>{
+                   return value.item_rate <  100
             })
+            console.log(GetItem)
             }
             GetItemType = (item_type)=>{
-                items.filter(value =>{
-                   console.log(value.item_type === item_type)
+             let ItemType =   items.filter(value =>{
+                   return  value.item_type === item_type
             })
+            console.log(ItemType)
             }
             OutOfStoke = () =>{
-                items.filter(value =>{
-                   console.log(value.Qty  === 0)
+                let Stoke = items.filter(value =>{
+                    return value.Qty  == 0
                 })
+                console.log(Stoke)
             }
             //---------------ItemSold unable to solved----------------
             // ItemSold = (item_name , Qty) => {
-            //     items.filter(value =>{ value.item_name === item_name
-            //         //console.log(value.Qty - Qty)
+            //     let Sold = items.filter(value =>{ value.item_name === item_name && value.Qty - Qty
             //     })
             // } 
 
     }
-        let abc = new grocaeryShop(items)
-        abc.GetItemGtr(100)
-        abc.GetItemLess(50)
-        abc.OutOfStoke()
+        let abc = new grocaeryShop()
+     abc.GetItemGtr()
+     abc.GetItemLess()
+      abc.OutOfStoke()
        // abc.ItemSold(100)
-        abc.GetItemType('Choclate')
+       abc.GetItemType('Choclate')
 
     </script>
 </body>
