@@ -6,100 +6,210 @@
     <title>Document</title>
 </head>
 <body>
+
     <script>
 
 var items = [{
     item_name: 'parle-G',
     item_rate: 120,
     item_type: 'biscuits',
-    Qty:10
+    Qty:10,
+    sold:60,
+    item_available:'available'
 },{
     item_name: 'Good-day',
     item_rate: 150,
     item_type: 'biscuits',
-    Qty:10
+    Qty:20,
+    sold:40,
+    item_available:'available'
 },{
     item_name: 'Carrot',
     item_rate: 100,
     item_type: 'Vegetable',
-    Qty:10
+    Qty:30,
+    sold:80,
+    item_available:'available'
 },{
     item_name: 'Chilli',
     item_rate: 50,
     item_type: 'Vegetable',
-    Qty:10
+    Qty:40,
+    sold:90,
+    item_available:'available'
 },{
     item_name: 'parle-G',
     item_rate: 10,
     item_type: 'biscuits',
-    Qty:10
+    Qty:50,
+    sold:20,
+    item_available:'available'
 },{
     item_name: 'Clinic Plus',
     item_rate: 200,
     item_type: 'Shampoo',
-    Qty:10
+    Qty:60,
+    sold:10,
+    item_available:'available'
 },{
     item_name: 'Sunsilk',
     item_rate: 10,
     item_type: 'Shampoo',
-    Qty:10
+    Qty:60,
+    sold:40,
+    item_available:'available'
 },{
     item_name: 'Melody',
     item_rate: 10,
     item_type: 'Choclate',
-    Qty:10
+    Qty:70,
+    sold:30,
+    item_available:'available'
 },{
     item_name: 'parle',
     item_rate: 10,
     item_type: 'Choclate',
-    Qty:0
+    Qty:0,
+    sold:40,
+    item_available:'Comming soon'
 }];
     class grocaeryShop {
-            constructor(item_name,item_rate,item_type,Qty){
+            constructor(item_name,item_rate,item_type,Qty,item_available,sold){
                 this.item_name =  item_name
                 this.item_rate = item_rate
-                this.item_type = item_type;
-                //this.item_available = item_available
+                this.item_type = item_type
+                this.item_available = item_available
                 this.Qty = Qty
+                this.sold = sold
             }
+
+            Display = () =>{
+                let GetItem =  items.filter(value =>{
+                   return value
+            })
+            document.write("<div>1)2)4)Total &nbsp;item &nbsp; name &nbsp;and &nbsp; item &nbsp;rate </div>"); 
+            document.write("<div>name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sold&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comming Product </div>"); 
+             for(var key in GetItem){ 
+            document.write("<span>"+ JSON.stringify(GetItem[key].item_name)+"&nbsp; &nbsp;&nbsp;"+ JSON.stringify(GetItem[key].item_rate)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_type)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].Qty)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].sold)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_available)+"<br>"+"</span>");  
+    } 
+            console.log(GetItem)
+            }
+
+
             GetItemGtr = ()=>{
                 let GetItem =  items.filter(value =>{
                    return value.item_rate > 100
             })
-            console.log(GetItem)
+            document.write("<br><br><div>7)Print element in an array greater then 100</div>"); 
+             for(var key in GetItem){ 
+            document.write("<span>"+ JSON.stringify(GetItem[key].item_name)+" "+"</span>");  
+            } 
+            for(var key in GetItem){ 
+                console.log(`Item Grater then 100 ${GetItem[key].item_name}`)
+            } 
+            
             }            
             
             GetItemLess= ()=>{
                let GetItem =  items.filter(value =>{
                    return value.item_rate <  100
             })
-            console.log(GetItem)
+            document.write("<br><br><div>8)Print element in an array Less then 100</div>"); 
+             for(var key in GetItem){ 
+            document.write("<span>"+ JSON.stringify(GetItem[key].item_name)+" "+"</span>");  
+            } 
+            for(var key in GetItem){ 
+                console.log(`Item Less then 100 ${GetItem[key].item_name}`)
+            } 
             }
             GetItemType = (item_type)=>{
              let ItemType =   items.filter(value =>{
                    return  value.item_type === item_type
             })
-            console.log(ItemType)
+            document.write("<br><br><div>9)Print element in an array Provide by user 'Choclate'</div>"); 
+             for(var key in ItemType){ 
+            document.write("<span>"+ JSON.stringify(ItemType[key].item_name)+" "+"</span>");  
+            } 
+            for(var key in ItemType){ 
+                console.log(`Item Detail By TYPE Choclate Provide by user ${ItemType[key].item_name}`)
+            } 
             }
             OutOfStoke = () =>{
                 let Stoke = items.filter(value =>{
                     return value.Qty  == 0
                 })
-                console.log(Stoke)
+                document.write("<br><div>3)Print element in an array Out of Stock</div>"); 
+             for(var key in Stoke){ 
+            document.write("<span>"+ JSON.stringify(Stoke[key].item_name)+" "+"</span>");  
+            } 
+            for(var key in Stoke){ 
+                console.log(`Out Of Stock ${Stoke[key].item_name} becouse Qty ${Stoke[key].Qty}`)
+            } 
+                
             }
             //---------------ItemSold unable to solved----------------
-            // ItemSold = (item_name , Qty) => {
-            //     let Sold = items.filter(value =>{ value.item_name === item_name && value.Qty - Qty
-            //     })
-            // } 
+            ItemSold = (item_name) => {
+                let SoldItem = items.filter(value =>{ 
+                    return value.item_name == item_name
+                })
+                document.write("<br><br><div>6)Print element in an array Stock Sold 'Vegetable'</div>"); 
+             for(var key in SoldItem){ 
+            document.write("<span>"+ JSON.stringify(SoldItem[key].item_name)+" "+JSON.stringify(SoldItem[key].sold)+"</span>");  
+            } 
+            for(var key in SoldItem){ 
+                console.log(`Item Sold of ${SoldItem[key].item_name},Total  Sold  ${SoldItem[key].sold}`)
+            } 
+                
+            } 
+
+            AvailablefStoke = () =>{
+                let Stoke = items.filter(value =>{
+                    return value.Qty  != 0
+                })
+                document.write("<br><br><div>11)Print element in an array of Stock</div>"); 
+             for(var key in Stoke){ 
+            document.write("<span>"+ JSON.stringify(Stoke[key].item_name)+" "+"</span>");  
+            } 
+                console.log(Stoke)
+            }
+
+            DisplayOne = (item_name) =>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_name == item_name
+            })
+            document.write("<br><br><div>5)Print element in an array of Item Provide by user 'Melody' </div>"); 
+            document.write("<div>name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rate &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sold</div>"); 
+             for(var key in GetItem){ 
+            document.write("<span>"+ JSON.stringify(GetItem[key].item_name)+"&nbsp; &nbsp;&nbsp;"+ JSON.stringify(GetItem[key].item_rate)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_type)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].Qty)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].sold)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_available)+"<br>"+"</span>");  
+            } 
+            for(var key in GetItem){ 
+                console.log(`Display of one item value provided by user Name = ${GetItem[key].item_name},Rate =${GetItem[key].item_rate},Qty=${GetItem[key].Qty},Item Type = ${GetItem[key].item_type}, Item sold =${GetItem[key].sold}`)
+            } 
+            }
+            DisplayComming = () =>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_available == 'Comming soon'
+            })
+            document.write("<br><br><div>10)Print element in an array of Item Provide by user 'Comming soon' </div>"); 
+             for(var key in GetItem){ 
+                document.write("<span>"+ JSON.stringify(GetItem[key].item_name)+"&nbsp; &nbsp;&nbsp;"+ JSON.stringify(GetItem[key].item_rate)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_type)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].Qty)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].sold)+"&nbsp; &nbsp;&nbsp;"+JSON.stringify(GetItem[key].item_available)+"<br>"+"</span>");  
+    } 
+    for(var key in GetItem){ 
+                console.log(`Display of Comming soon item value provided by user Name = ${GetItem[key].item_name},Rate =${GetItem[key].item_rate},Qty=${GetItem[key].Qty},Item Type = ${GetItem[key].item_type}, Item sold =${GetItem[key].sold}`)
+            }
+            }
 
     }
         let abc = new grocaeryShop()
-     abc.GetItemGtr()
-     abc.GetItemLess()
-      abc.OutOfStoke()
-       // abc.ItemSold(100)
-       abc.GetItemType('Choclate')
+        abc.Display()
+        abc.OutOfStoke()
+        abc.DisplayOne('Melody')
+        abc.ItemSold('Chilli')
+        abc.GetItemGtr()
+        abc.GetItemLess()
+        abc.GetItemType('Choclate')
+        abc.DisplayComming()
+        abc.AvailablefStoke()
 
     </script>
 </body>
