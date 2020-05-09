@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        class string{
+             myFunction(str) {
+               // var str = "howdy_meenal";
+                for(let j=0;j <= str.length-1;j++){
+                if(j <=3){
+                    var res = str.charAt(j)
+                    document.write("<span>"+res+"</span>"); 
+                    console.log(res)}
+                else{
+                    document.write("<span>*</span>");    
+                    console.log('*')
+                }
+                }
+            }
+             myFunction1(str) {
+               // var str = "howdy_meenal";
+        str.split('').map(function(a, i) {
+                if(i < 4){
+                    document.write("<span>"+a+"</span>")
+                    console.log(a,i)        
+                 }
+                 else {
+                    document.write("<span>*</span>")
+                     console.log('*') 
+                 }
+
+                })
+            
+             }
+        }
+        let str =new string()
+        //str.myFunction('i am Programmer')
+        str.myFunction1('i am Programmer')
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+var items = [{
+    item_name: 'parle-G',
+    item_rate: 120,
+    item_type: 'biscuits',
+    Qty:10,
+    sold:60,
+    item_available:'available'
+},{
+    item_name: 'Good-day',
+    item_rate: 150,
+    item_type: 'biscuits',
+    Qty:20,
+    sold:40,
+    item_available:'available'
+},{
+    item_name: 'Carrot',
+    item_rate: 100,
+    item_type: 'Vegetable',
+    Qty:30,
+    sold:80,
+    item_available:'available'
+},{
+    item_name: 'Chilli',
+    item_rate: 50,
+    item_type: 'Vegetable',
+    Qty:40,
+    sold:90,
+    item_available:'available'
+},{
+    item_name: 'parle-G',
+    item_rate: 20,
+    item_type: 'biscuits',
+    Qty:50,
+    sold:20,
+    item_available:'available'
+},{
+    item_name: 'Clinic Plus',
+    item_rate: 200,
+    item_type: 'Shampoo',
+    Qty:60,
+    sold:10,
+    item_available:'available'
+},{
+    item_name: 'Sunsilk',
+    item_rate: 10,
+    item_type: 'Shampoo',
+    Qty:60,
+    sold:40,
+    item_available:'available'
+},{
+    item_name: 'Melody',
+    item_rate: 50,
+    item_type: 'Choclate',
+    Qty:70,
+    sold:30,
+    item_available:'available'
+},{
+    item_name: 'parle',
+    item_rate: 80,
+    item_type: 'Choclate',
+    Qty:0,
+    sold:40,
+    item_available:'Comming soon'
+}];
+    class grocaeryShop {
+            constructor(item_name,item_rate,item_type,Qty,item_available,sold){
+                this.item_name =  item_name
+                this.item_rate = item_rate
+                this.item_type = item_type
+                this.item_available = item_available
+                this.Qty = Qty
+                this.sold = sold
+            }
+
+            Display = () =>{
+                let GetItem =  items.filter(value =>{
+                   return value
+            })
+            console.log(GetItem)
+            }
+            GetItemGtr = ()=>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_rate > 100
+            })
+            GetItem.forEach((key ,i)=> {
+                console.log(`Item Grater then 100 ${JSON.stringify(GetItem[i].item_name)} rate ${JSON.stringify(GetItem[i].item_rate)}`)
+            }); 
+            }            
+            GetItemLess= ()=>{
+               let GetItem =  items.filter(value =>{
+                   return value.item_rate <  100
+            })
+            GetItem.forEach((key ,i)=> {
+                console.log(`Item Less then 100 ${JSON.stringify(GetItem[i].item_name)} rate ${JSON.stringify(GetItem[i].item_rate)}`)
+            });
+            }
+            GetItemType = (item_type)=>{
+             let ItemType =   items.filter(value =>{
+                   return  value.item_type === item_type
+            })
+
+            ItemType.forEach((key ,i)=> {
+                console.log(`Item Detail By TYPE Choclate Provide by user ${ItemType[i].item_name}`)
+            });
+            }
+            OutOfStoke = () =>{
+                let Stoke = items.filter(value =>{
+                    return value.Qty  == 0
+                })
+                Stoke.forEach((key ,i)=> {
+                    console.log(`Out Of Stock ${Stoke[i].item_name} becouse Qty ${Stoke[i].Qty}`)
+            });
+            }
+            //---------------ItemSold unable to solved----------------
+            ItemSold = (item_name) => {
+                let SoldItem = items.filter(value =>{ 
+                    return value.item_name == item_name
+                })
+                SoldItem.forEach((key ,i)=> {
+                    console.log(`Item Sold of ${SoldItem[i].item_name},Total  Sold  ${SoldItem[i].sold}`)
+            });
+            } 
+
+            AvailablefStoke = () =>{
+                let Stoke = items.filter(value =>{
+                    return value.Qty  != 0
+                })
+                console.log(Stoke)
+            }
+
+            DisplayOne = (item_name) =>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_name == item_name
+            })
+            GetItem.forEach((key ,i)=> {
+                console.log(`Display of one item value provided by user Name = ${GetItem[i].item_name},Rate =${GetItem[i].item_rate},Qty=${GetItem[i].Qty},Item Type = ${GetItem[i].item_type}, Item sold =${GetItem[i].sold}`)
+            });
+            }
+            DisplayComming = () =>{
+                let GetItem =  items.filter(value =>{
+                   return value.item_available == 'Comming soon'
+            })
+            GetItem.forEach((key ,i)=> {
+                console.log(`Display of Comming soon item value provided by user Name = ${GetItem[i].item_name},Rate =${GetItem[i].item_rate},Qty=${GetItem[i].Qty},Item Type = ${GetItem[i].item_type}, Item sold =${GetItem[i].sold}`)
+            });
+            }
+
+    }
+        let shop = new grocaeryShop()
+        shop.Display()
+        shop.OutOfStoke()
+        shop.DisplayOne('Melody')
+        shop.ItemSold('Chilli')
+        shop.GetItemGtr()
+        shop.GetItemLess()
+        shop.GetItemType('Choclate')
+        shop.DisplayComming()
+        shop.AvailablefStoke()
+
+    </script>
+</body>
+</html>
